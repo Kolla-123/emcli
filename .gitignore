@@ -1,0 +1,32 @@
+# Build artifacts
+*.o
+*.a
+*.so
+*.out
+emcli
+emcli.exe
+
+# IDE and editor files
+.vscode/
+.idea/
+*.code-workspace
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Build directories
+build/
+dist/
+Debug/
+Release/
+
+# Dependencies
+*.d
+*.elf
+*.hex
+
+# Temporary files
+*.tmp
+*.bak
+*.log
