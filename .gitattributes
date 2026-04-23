@@ -1,0 +1,21 @@
+# Auto detect text files and normalize line endings to LF
+* text=auto
+
+# C source files
+*.c text eol=lf
+*.h text eol=lf
+
+# Build files
+Makefile text eol=lf
+*.sh text eol=lf
+
+# Documentation
+*.md text eol=lf
+*.txt text eol=lf
+README* text eol=lf
+
+# Binary files
+*.o binary
+*.exe binary
+*.so binary
+*.a binary
