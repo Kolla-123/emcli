@@ -36,7 +36,7 @@ emcli/
 └── emcli.c.c          - Original single-file version (reference)
 ```
 
-## 🔧 What Does This Code Do?
+##  What Does This Code Do?
 
 ### Core Architecture
 
