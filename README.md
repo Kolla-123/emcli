@@ -2,7 +2,7 @@
 
 A **lightweight, production-ready CLI system** designed for embedded systems and resource-constrained environments. Features integrated JSON parsing, modular command registration, and zero external dependencies.
 
-## 📋 Overview
+##  Overview
 
 EMCLI (Embedded CLI) is a compact command-line interface framework that allows you to build extensible command-based applications with minimal memory footprint. It's perfect for:
 
@@ -14,14 +14,14 @@ EMCLI (Embedded CLI) is a compact command-line interface framework that allows y
 
 ### Key Capabilities
 
-✅ **Command Registration System** - Dynamically register commands at runtime  
-✅ **JSON Data Parsing** - Built-in JSMN JSON parser for structured data  
-✅ **Configurable Storage** - Choose between array or linked-list based registries  
-✅ **Parameter Validation** - Automatic command parameter checking  
-✅ **Safe String Operations** - Bounds-checking on all string operations  
-✅ **Zero Dependencies** - Pure C99, no external libraries required  
+ **Command Registration System** - Dynamically register commands at runtime  
+ **JSON Data Parsing** - Built-in JSMN JSON parser for structured data  
+ **Configurable Storage** - Choose between array or linked-list based registries  
+ **Parameter Validation** - Automatic command parameter checking  
+ **Safe String Operations** - Bounds-checking on all string operations  
+ **Zero Dependencies** - Pure C99, no external libraries required  
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 emcli/
@@ -95,16 +95,16 @@ Output: "SET command executed\r\nParameter: temperature\r\nValue: 25\r\n"
 ### Registry Methods
 
 **Array-Based (Default, `ARRAY_BASED_COMMAND_REGISTER = 1`):**
-- ✅ Fast O(n) lookup
-- ✅ Fixed memory allocation
-- ✅ Cache-friendly
-- ❌ Limited to `CUSTOM_CLI_MAX_COMMANDS`
+-  Fast O(n) lookup
+-  Fixed memory allocation
+-  Cache-friendly
+-  Limited to `CUSTOM_CLI_MAX_COMMANDS`
 
 **Linked-List Based (`ARRAY_BASED_COMMAND_REGISTER = 0`):**
-- ✅ Dynamic command addition
-- ✅ No hard limit on command count
-- ❌ Slower O(n) lookup
-- ❌ Additional memory per command
+-  Dynamic command addition
+-  No hard limit on command count
+-  Slower O(n) lookup
+-  Additional memory per command
 
 ### Memory Layout Example
 
@@ -133,7 +133,7 @@ Tokens Generated:
 [8] STRING   {start: 53, end: 58}   "wheel" - Array element
 ```
 
-## 🚀 Building & Running
+##  Building & Running
 
 ### Using Makefile (Recommended)
 
@@ -188,7 +188,7 @@ Groups:
 Command not recognised. Enter 'help' to view the list of commands.
 ```
 
-## 💡 Usage Examples
+##  Usage Examples
 
 ### Adding a Custom Command
 
@@ -256,15 +256,15 @@ Edit `config.h` to customize behavior:
 
 *Where n = number of commands, m = command string length*
 
-## 🔒 Security Considerations
+##  Security Considerations
 
-- ✅ **Buffer Overflow Protection**: All string operations use bounded functions
-- ✅ **Parameter Validation**: Commands validate argument count before execution
-- ✅ **No Dynamic Code Execution**: Commands are pre-registered only
-- ⚠️ **JSON Parsing**: Validates JSON structure but doesn't sanitize values
-- ⚠️ **Command Injection**: Careful when accepting raw user input
+-  **Buffer Overflow Protection**: All string operations use bounded functions
+-  **Parameter Validation**: Commands validate argument count before execution
+-  **No Dynamic Code Execution**: Commands are pre-registered only
+-  **JSON Parsing**: Validates JSON structure but doesn't sanitize values
+-  **Command Injection**: Careful when accepting raw user input
 
-## 🛠️ Use Cases
+##  Use Cases
 
 ### 1. Embedded Device Configuration
 ```
@@ -290,7 +290,7 @@ UID: 0
 Groups: root, wheel, admins
 ```
 
-## 🐛 Debugging
+##  Debugging
 
 Enable verbose output by modifying `main.c`:
 
@@ -301,7 +301,7 @@ printf("Tokens: %d\n", r);
 #endif
 ```
 
-## 📚 Dependencies
+##  Dependencies
 
 **None!** Pure C99 with only standard library:
 - `stdio.h` - I/O operations
@@ -310,11 +310,11 @@ printf("Tokens: %d\n", r);
 - `stddef.h` - Standard definitions
 - `stdint.h` - Integer types
 
-## 📝 License
+##  License
 
 This project is provided as-is for educational and commercial use.
 
-## 🤝 Contributing
+##  Contributing
 
 Suggestions for improvement:
 - Command history/recall
@@ -323,6 +323,6 @@ Suggestions for improvement:
 - Extended JSON features
 - Command aliasing
 
-## 📞 Support
+##  Support
 
 For issues or questions, refer to code comments and header documentation in each file.
