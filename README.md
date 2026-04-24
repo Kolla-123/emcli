@@ -90,7 +90,7 @@ cli_set_command() handler executes
 Output: "SET command executed\r\nParameter: temperature\r\nValue: 25\r\n"
 ```
 
-## 📊 Technical Details
+##  Technical Details
 
 ### Registry Methods
 
@@ -233,7 +233,7 @@ cli_process_command("temp 35", output, sizeof(output));
 printf("%s", output);  /* "Temperature set to: 35°C\r\n" */
 ```
 
-## ⚙️ Configuration
+##  Configuration
 
 Edit `config.h` to customize behavior:
 
