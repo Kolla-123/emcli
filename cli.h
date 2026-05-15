@@ -1,7 +1,8 @@
-#ifndef CLI_H
-#define CLI_H
+#ifndef EMCLI_CLI_H
+#define EMCLI_CLI_H
 
 #include "config.h"
+#include "getset_protocol.h"
 #include "jsmn.h"
 #include <stddef.h>
 
@@ -23,10 +24,11 @@ typedef struct command_input_list {
 } CLI_Definition_List_Item;
 #endif
 
-/* Public API */
+/* Public API. */
 base_type cli_register_command(const CLI_Command_Definition *command_to_register);
 base_type cli_process_command(const char *command_input, char *write_buffer,
                               size_t write_buffer_len);
+void cli_set_getset_context(GetSet_Context *context);
 
 /* Built-in command interpreters */
 base_type cli_help_command(char *write_buffer, size_t write_buffer_len,
@@ -40,4 +42,4 @@ base_type cli_list_command(char *write_buffer, size_t write_buffer_len,
 
 /* ============================= CLI END =============================== */
 
-#endif /* CLI_H */
+#endif /* EMCLI_CLI_H */

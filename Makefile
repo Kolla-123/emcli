@@ -1,23 +1,26 @@
 # Simple Makefile for emcli project
 
 CC = gcc
-CFLAGS = -Wall -Wextra -std=c99
-SOURCES = main.c cli.c jsmn.c
+CFLAGS ?= -Wall -Wextra -Wpedantic -std=c99
+LDFLAGS ?=
+LDLIBS ?=
+RM ?= rm -f
+SOURCES = main.c cli.c getset_protocol.c jsmn.c
 OBJECTS = $(SOURCES:.c=.o)
 TARGET = emcli
 
-.PHONY: all clean
+.PHONY: all clean run
 
 all: $(TARGET)
 
 $(TARGET): $(OBJECTS)
-	$(CC) $(CFLAGS) -o $@ $^
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^ $(LDLIBS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJECTS) $(TARGET)
+	$(RM) $(OBJECTS) $(TARGET)
 
 run: $(TARGET)
 	./$(TARGET)

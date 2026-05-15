@@ -30,3 +30,6 @@ Release/
 *.tmp
 *.bak
 *.log
+
+# Markdown files
+*.md
