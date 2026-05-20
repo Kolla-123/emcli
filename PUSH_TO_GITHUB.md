@@ -70,9 +70,9 @@ This:
 1. Go back to your GitHub repository page
 2. Refresh the page
 3. You should see:
-   - ✅ All your commits in the commit history
-   - ✅ README.md displayed on the repository home
-   - ✅ File tree showing all source files
+   - All your commits in the commit history
+   - README.md displayed on the repository home
+   - File tree showing all source files
 
 ## Git Configuration for Future Pushes
 
