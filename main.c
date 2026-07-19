@@ -23,6 +23,8 @@ typedef struct app_store {
   char mode[APP_STORE_VALUE_SIZE];
 } App_Store;
 
+static App_Store app_store = {"25", "auto"};
+
 static GetSet_Status app_get_handler(const GetSet_Packet *packet,
                                      GetSet_Packet *response,
                                      void *user_context) {
@@ -90,6 +92,23 @@ static GetSet_Status app_set_handler(const GetSet_Packet *packet,
                             (uint16_t)strlen(ack_value));
 }
 
+static base_type app_list_command(char *write_buffer, size_t write_buffer_len,
+                                  const char *command_string) {
+  (void)command_string;
+
+  if (write_buffer == NULL || write_buffer_len == 0U) {
+    return CLI_FAILURE;
+  }
+
+  snprintf(write_buffer, write_buffer_len,
+           "LIST command executed\r\n"
+           "Temp: %s\r\n"
+           "Mode: %s\r\n",
+           app_store.temp, app_store.mode);
+
+  return CLI_SUCCESS;
+}
+
 /* Command Definitions */
 static const CLI_Command_Definition help_command = {
   "help",
@@ -117,18 +136,17 @@ static const CLI_Command_Definition get_command = {
 
 static const CLI_Command_Definition list_command = {
   "list",
-  "list: Shows user/admin/uid/groups values",
-  cli_list_command,
+  "list: Shows current application values",
+  app_list_command,
   APP_NO_COMMAND_PARAMETERS,
   FALSE
 };
 
 int main(void) {
   static char write_buffer[CLI_WRITE_BUFFER_SIZE];
-  App_Store store = {"25", "auto"};
   GetSet_Context getset_context;
 
-  getset_context_init(&getset_context, &store);
+  getset_context_init(&getset_context, &app_store);
   getset_register_handler(&getset_context, GETSET_OPCODE_GET, app_get_handler);
   getset_register_handler(&getset_context, GETSET_OPCODE_SET, app_set_handler);
   cli_set_getset_context(&getset_context);
